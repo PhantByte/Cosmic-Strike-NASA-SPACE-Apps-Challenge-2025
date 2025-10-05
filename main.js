@@ -132,7 +132,7 @@ function main()
   const sphereHeightDivisions = 200;
   const sphereGeo = new THREE.SphereGeometry(sphereRadius, sphereWidthDivisions, sphereHeightDivisions);
   const loader = new THREE.TextureLoader();
-  const sunTexture = loader.load('/textures/sun.jpeg');
+  const sunTexture = loader.load('textures/sun.jpeg');
   const sunMaterial = new THREE.MeshPhongMaterial({map:sunTexture});
   const sun = new THREE.Mesh(sphereGeo, sunMaterial);
   let sunX = -10000;
@@ -151,7 +151,7 @@ function main()
   }*/
 
   objects.push(sun);
-  const earthTexture = loader.load('/textures/earth.jpg');
+  const earthTexture = loader.load('textures/earth.jpg');
   const earthMaterial = new THREE.MeshPhongMaterial({map:earthTexture});
   const earth = new THREE.Mesh(sphereGeo, earthMaterial);
   earth.scale.set(10, 10, 10);
@@ -168,18 +168,18 @@ function main()
   objects.push(earth);
 
   const textureLoader = new THREE.TextureLoader();
-  textureLoader.load('/textures/asteroidTexture.jpg');
+  textureLoader.load('textures/asteroidTexture.jpg');
 
   const meshLoader = new GLTFLoader();
 
 
-  meshLoader.load( '/models/meteorModel.glb', function ( gltf ) { 
+  meshLoader.load( 'models/meteorModel.glb', function ( gltf ) { 
     asteroidModel = gltf.scene;
     asteroidModel.scale.set(1,1,1);
     asteroidModel.position.set(asteroidX, asteroidY, asteroidZ);
     asteroidModel.traverse((child) => {
       if (child.isMesh) {
-        const tex = textureLoader.load('/textures/asteroidTexture.jpg');
+        const tex = textureLoader.load('textures/asteroidTexture.jpg');
         child.material.map = tex;
         child.material.needsUpdate = true;
         child.material = new THREE.MeshPhongMaterial({ map: child.material.map });
@@ -203,12 +203,12 @@ function main()
   {
     const loader = new THREE.CubeTextureLoader();
     const texture = loader.load([
-      '/sky/px.png',
-      '/sky/nx.png',
-      '/sky/py.png',
-      '/sky/ny.png',
-      '/sky/pz.png',
-      '/sky/nz.png',
+      'sky/px.png',
+      'sky/nx.png',
+      'sky/py.png',
+      'sky/ny.png',
+      'sky/pz.png',
+      'sky/nz.png',
     ]);
     scene.background = texture;
   }
@@ -361,5 +361,6 @@ function main()
 
   requestAnimationFrame(render);
 }
+
 
 main();
