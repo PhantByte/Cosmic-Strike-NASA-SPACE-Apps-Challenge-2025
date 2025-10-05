@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel = "stylesheet" href = "styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/",
+      "lil-gui": "https://cdn.jsdelivr.net/npm/lil-gui@0.19.2/dist/lil-gui.esm.min.js"
+    }
+  }
+  </script>
+  <title>Project Cosmic Strike</title>
+</head>
+<body>
+  <div id="preventionInfo" 
+      style="position:absolute; color:white; background:rgba(0,0,0,0.5); padding:10px; border-radius:5px;">
+    No prevention applied. The asteroid will impact the selected location.
+  </div>
+  <button id = "refreshButton" onclick="location.reload()">Try again</button>
+  <canvas id = 'c'></canvas>
+  <script type="module" src = "main.js"></script> 
+</body>
+</html>
